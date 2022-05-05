@@ -14,7 +14,7 @@ class CreatePostTagTable extends Migration
     public function up()
     {
         Schema::create('post_tag', function (Blueprint $table) {
-            
+
             // Assegno la foreign key post_id
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
@@ -22,6 +22,9 @@ class CreatePostTagTable extends Migration
             // Assegno la foreign key tag_id
             $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+
+            // Imposto entrambe le foreign key come primary key
+            $table->primary(['post_id', 'tag_id']);
         });
     }
 
