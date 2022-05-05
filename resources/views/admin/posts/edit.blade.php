@@ -33,7 +33,7 @@
                 <td>{{$post->category ? $post->category->name : 'null'}}</td>
                 <td>
                     @foreach ($post->tags as $tag)
-                        <span style="background-color: {{$tag->color}}" class="badge badge-pill py-2 px-3 my-2 text-white">{{$tag->name}}</span>
+                        <span style="background-color: {{$tag->color}}" class="badge badge-pill py-2 px-3 my-2 text-dark">{{$tag->name}}</span>
                     @endforeach
                 </td>
                 <td>
