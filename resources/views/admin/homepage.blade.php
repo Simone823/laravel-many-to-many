@@ -25,15 +25,14 @@
 
             {{-- Foreach users --}}
             @foreach ($users as $element)
-            <tr>
-                <td>{{$element->id}}</td>
-                <td>{{$element->name}}</td>
-                <td>{{$element->email}}</td>
-                <td>{{$element->email_verified_at == null ? 'null' : $element->email_verified_at}}</td>
-                <td>{{$element->password}}</td>
-                <td>{{$element->remember_token == null ? 'null' : $element->remember_token}}</td>
-
-            </tr>
+                <tr>
+                    <td>{{$element->id}}</td>
+                    <td>{{$element->name}}</td>
+                    <td>{{$element->email}}</td>
+                    <td>{{$element->email_verified_at == null ? 'null' : $element->email_verified_at}}</td>
+                    <td>{{$element->password}}</td>
+                    <td>{{$element->remember_token == null ? 'null' : $element->remember_token}}</td>
+                </tr>
             @endforeach
 
         </table>
@@ -86,6 +85,7 @@
                 <th>Slug</th>
                 <th>Description</th>
                 <th>Category_id</th>
+                <th>Tags</th>
                 <th>Image</th>
                 <th>Publication_date</th>
             </tr>
@@ -98,6 +98,11 @@
                     <td>{{$element->slug}}</td>
                     <td>{{$element->description}}</td>
                     <td>{{$element->category ? $element->category->name : 'null'}}</td>
+                    <td>
+                        @foreach ($element->tags as $tag)
+                            <span style="background-color: {{$tag->color}}; font-size: 14px;" class="badge badge-pill py-2 px-3 my-2 text-dark">{{$tag->name}}</span>
+                        @endforeach
+                    </td>
                     <td>
                         <figure class="img_wrapper">
                             <img src="{{$element->image}}" alt="">
