@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -91,7 +92,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // Return view admin category edit
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
