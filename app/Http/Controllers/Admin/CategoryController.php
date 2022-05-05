@@ -105,7 +105,44 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        // recupero la richiesta
+        $data = $request->all();
+
+        // Validazione 
+        $request->validate([
+            'name' => 'required|max:150',
+        ]);
+
+        // Slug
+        $slug = Str::slug($data['name']);
+
+        // Slug base
+        $slug_base = $slug;
+
+        // Counter slug
+        $counter = 1;
+
+        // category present
+        $category_present = Category::where('slug', $slug)->first();
+
+        // While category present
+        while ($category_present) {
+            $slug = $slug_base . '-' . $counter;
+            $counter++;
+            $category_present = Category::where('slug', $slug)->first();
+        }
+
+        // Recupero i dati con fill
+        $category->fill($data);
+
+        // Assegno lo slug alla nuova categoria
+        $category->slug = $slug;
+
+        // Modifico i dati
+        $category->update($data);
+
+        // Redirect route admin categories index
+        return redirect()->route('admin.categories.index');
     }
 
     /**
