@@ -3,6 +3,7 @@
 use App\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 class TagSeeder extends Seeder
 {
@@ -11,7 +12,7 @@ class TagSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         // Array tags
         $tags = [
@@ -40,6 +41,7 @@ class TagSeeder extends Seeder
             // Imposto le proprietà
             $tag->name = $element;
             $tag->slug = Str::slug($element, '-');
+            $tag->color = $faker->hexColor();
 
             // Salvo i dati
             $tag->save();
