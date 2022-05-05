@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -21,8 +22,11 @@ class PostController extends Controller
         // Recupero dal database con metodo all i posts
         $posts = Post::all();
 
+        // Recupero l'elenco di tags dal db
+        $tags = Tag::orderBy('name', 'ASC')->get();
+
         // Ritorno la view admin posts index
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'tags'));
     }
 
     /**
