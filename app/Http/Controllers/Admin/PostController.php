@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         // Recupero dal database con metodo all i posts
-        $posts = Post::all();
+        $posts = Post::with(['category', 'tags'])->get();
 
         // Recupero l'elenco di tags dal db
         $tags = Tag::orderBy('name', 'ASC')->get();
@@ -120,8 +120,11 @@ class PostController extends Controller
         // Recupero l'elenco di categorie
         $categories = Category::orderBy('name', 'ASC')->get();
 
+        // Recupero l'elenco di tags
+        $tags = Tag::orderBy('name', 'ASC')->get();
+
         // Return view admin.posts.edit
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -141,6 +144,7 @@ class PostController extends Controller
             'title' => 'required|min:5|max:200',
             'description' => 'nullable',
             'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id',
             'image' => 'required|url',
             'publication_date' => 'nullable|date|before_or_equal:today'
         ]);
@@ -166,6 +170,14 @@ class PostController extends Controller
 
         // Imposto lo sluga post
         $post->slug = $slug;
+
+        // Controllo se esiste il tags lo aggiorno altrimenti sync vuoto
+        if(array_key_exists('tags', $data)) {
+            // Sync
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
 
         // Modifico i dati
         $post->update($data);
