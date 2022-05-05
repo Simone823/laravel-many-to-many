@@ -37,15 +37,18 @@
     <section id="form_create_wrapper" class="container text-white">
 
         {{-- Form aggiungi elemento --}}
-        <form action="{{route('admin.categories.store')}}" method="POST">
+        <form action="{{route('admin.categories.update', $category)}}" method="POST">
 
             {{-- key --}}
             @csrf
 
-            {{-- Title --}}
+            {{-- Method --}}
+            @method('PUT')
+
+            {{-- Name --}}
             <div class="form-group">
                 <label for="name">Nome</label>
-                <input type="name" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome della categoria" value="{{$category->name}}">
+                <input type="name" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome della categoria" value="{{old('name', $category['name'])}}">
 
                 {{-- Error validation --}}
                 @error('name')
