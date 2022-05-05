@@ -1,0 +1,63 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Import admin posts index scss
+@import '/resources/sass/admin/posts/index.scss';
+
+// Import admin posts create scss
+@import '/resources/sass/admin/posts/create.scss';
+
+// Import admin posts edit scss
+@import '/resources/sass/admin/posts/edit.scss';
+
+// Import admin homepage scss
+@import '/resources/sass/admin/hompeage.scss';
+
+
+// Reset
+img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
+// .dropdown-item hover
+.dropdown-item:hover {
+    background-color: #343a40 !important;
+} 
+
+// Nav link
+.nav-link {
+    font-size: 18px;
+
+    &:hover {
+        color: white;
+        transition: color 300ms linear;
+    }
+}
+
+// Nav bar container gap
+.navbar .container {
+    gap: 20px !important;
+}
+
+// Navbar link ul gap
+.navbar-nav {
+    row-gap: 15px;
+    column-gap: 28px;
+}
+// ----------------------------------
+
+
+// Main
+main {
+    padding-top: 140px;
+    padding-bottom: 50px;
+}
+

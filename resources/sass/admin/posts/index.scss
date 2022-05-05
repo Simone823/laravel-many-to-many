@@ -1,0 +1,40 @@
+#section_table_posts {
+    padding: 10px 20px;
+
+    h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .table_posts {
+    
+        tr {         
+    
+            th {
+                border: 2px solid black;
+                text-align: center;
+                padding: 10px 10px;
+                background-color: #a5a5a5;
+                font-size: 16px;
+            }
+    
+            td {
+                border: 2px solid black;
+                padding: 10px 10px;
+                text-align: center;
+                background-color: #d3d3d3;
+                font-size: 16px;
+
+                .img_wrapper {
+                    width: 70px;
+                    aspect-ratio: 1/1;
+                }
+
+                a {
+                    font-weight: 600;
+                }
+            }
+        }
+    
+    }
+}
