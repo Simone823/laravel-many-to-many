@@ -39,8 +39,11 @@ class PostController extends Controller
         // Recupero l'elenco di categorie dal database 
         $categories = Category::orderBy('name', 'ASC')->get();
 
+        // Recupero l'elenco di tag dal database 
+        $tags = Tag::orderBy('name', 'ASC')->get();
+
         // Return view admin.posts.create
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -59,6 +62,7 @@ class PostController extends Controller
             'title' => 'required|min:5|max:200',
             'description' => 'nullable',
             'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'exists:tags,id',
             'image' => 'required|url',
             'publication_date' => 'nullable|date|before_or_equal:today'
         ]);
@@ -84,6 +88,14 @@ class PostController extends Controller
 
         // Creo un nuovo post
         $post = new Post();
+
+        // Controllo se esiste il tags lo aggiorno altrimenti sync vuoto
+        if (array_key_exists('tags', $data)) {
+            // Sync
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
         
         // Recupero i dati con il metodo fill
         $post->fill($data);
