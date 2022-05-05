@@ -69,7 +69,7 @@
                 @foreach ($tags as $elTag)
                     <div class="form-check d-flex align-items-center mb-3">
                         <input class="form-check-input @error('tags') is-invalid @enderror" type="checkbox" name="tags[]" value="{{$elTag->id}}" id="tags-{{$elTag->id}}">
-                        <label style="background-color: {{$elTag->color}}" class="form-check-label badge badge-pill py-1 px-2 text-white" for="tags-{{$elTag->id}}">{{$elTag->name}}</label>
+                        <label style="background-color: {{$elTag->color}}" class="form-check-label badge badge-pill py-1 px-2 text-dark" for="tags-{{$elTag->id}}">{{$elTag->name}}</label>
                     </div>
                 @endforeach
 
