@@ -11,6 +11,12 @@ class Category extends Model
         'name',
     ];
 
+    // Funzione modifica url con slug
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     // Funzione relazione tabella posts
     public function posts() {
         return $this->hasMany('App\Post');
