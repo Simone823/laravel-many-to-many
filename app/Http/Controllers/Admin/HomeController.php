@@ -6,6 +6,7 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use App\User;
 
 class HomeController extends Controller
@@ -42,7 +43,10 @@ class HomeController extends Controller
         // Recupero dal db la tabella categories
         $categories = Category::all();
 
+        // Recupero l'elenco di tags dal db
+        $tags = Tag::all();
+
         // Ritorno la vista admin homepage
-        return view('admin.homepage', compact('users' ,'posts', 'categories'));
+        return view('admin.homepage', compact('users' ,'posts', 'categories', 'tags'));
     }
 }
