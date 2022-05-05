@@ -33,6 +33,24 @@ class TagSeeder extends Seeder
             'Tradizioni'
         ];
 
+        // Array colori
+        $array_color = [
+            '#FEFF94',
+            '#AD64C5',
+            '#88D8EC',
+            '#BCFFF2',
+            '#FFADED',
+            '#44FADD',
+            '#FFEE7D',
+            '#F67FF5',
+            '#41B3FF',
+            '#FDEA2E',
+            '#74F9FF',
+            '#B5FF7D',
+            '#F3F798',
+            '#7CDFFF'
+        ];
+
         foreach ($tags as $element) {
 
             // Creo un nuovo tag
@@ -41,7 +59,7 @@ class TagSeeder extends Seeder
             // Imposto le proprietà
             $tag->name = $element;
             $tag->slug = Str::slug($element, '-');
-            $tag->color = $faker->hexColor();
+            $tag->color = $faker->randomElement($array_color);
 
             // Salvo i dati
             $tag->save();
