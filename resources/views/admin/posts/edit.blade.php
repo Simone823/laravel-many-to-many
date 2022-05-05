@@ -19,6 +19,7 @@
                 <th>Slug</th>
                 <th>Description</th>
                 <th>Category_id</th>
+                <th>Tags</th>
                 <th>Image</th>
                 <th>Publication_date</th>
             </tr>
@@ -30,6 +31,11 @@
                 <td>{{$post['slug']}}</td>
                 <td>{{$post['description']}}</td>
                 <td>{{$post->category ? $post->category->name : 'null'}}</td>
+                <td>
+                    @foreach ($post->tags as $tag)
+                        <span style="background-color: {{$tag->color}}" class="badge badge-pill py-2 px-3 my-2 text-white">{{$tag->name}}</span>
+                    @endforeach
+                </td>
                 <td>
                     <figure class="img_wrapper">
                         <img src="{{$post['image']}}" alt="">
@@ -90,7 +96,6 @@
                     {{-- Foreach variabile categories --}}
                     @foreach ($categories as $element)
                         <option value="{{$element->id}}" {{old('category_id', optional($post->category)->id) == $element->id ? 'selected' : ''}}>{{$element->name}}</option>
-
                     @endforeach
                 </select>
 
@@ -101,6 +106,27 @@
                 </div>
                 @enderror
             </div>
+
+            {{-- Tags --}}
+            <div class="form-group">
+                <label>Tags</label>
+
+                {{-- Input --}}
+                @foreach ($tags as $elTag)
+                    <div class="form-check d-flex align-items-center mb-3">
+                        <input {{$post->tags->contains($elTag) ? 'checked' : ''}} class="form-check-input @error('tags') is-invalid @enderror" type="checkbox" name="tags[]" value="{{$elTag->id}}" id="tags-{{$elTag->id}}">
+                        <label style="background-color: {{$elTag->color}}" class="form-check-label badge badge-pill py-1 px-2 text-white" for="tags-{{$elTag->id}}">{{$elTag->name}}</label>
+                    </div>
+                @endforeach
+
+                {{-- Error validation --}}
+                @error('tags')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+
     
     
             {{-- Image --}}
