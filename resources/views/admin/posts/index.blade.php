@@ -19,6 +19,7 @@
                 <th>Slug</th>
                 <th>Description</th>
                 <th>Category_id</th>
+                <th>Tag</th>
                 <th>Image</th>
                 <th>Publication_date</th>
                 <th></th>
@@ -33,6 +34,11 @@
                     <td>{{$element->slug}}</td>
                     <td>{{$element->description}}</td>
                     <td>{{$element->category ? $element->category->name : 'null'}}</td>
+                    <td>
+                        @foreach ($element->tags as $tag)
+                            <span style="background-color: {{$tag->color}}" class="badge badge-pill py-2 px-3 my-2 text-white">{{$tag->name}}</span>
+                        @endforeach
+                    </td>
                     <td>
                         <figure class="img_wrapper">
                             <img src="{{$element->image}}" alt="">
