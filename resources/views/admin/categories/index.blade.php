@@ -19,6 +19,7 @@
                 <th>Name</th>
                 <th>Slug</th>
                 <th></th>
+                <th></th>
             </tr>
 
             {{-- Foreach categories --}}
@@ -27,6 +28,9 @@
                     <td>{{$element->id}}</td>
                     <td>{{$element->name}}</td>
                     <td>{{$element->slug}}</td>
+                    <td>
+                        <a class="btn btn-warning" href="{{route('admin.categories.edit', $element)}}">Modifica</a>
+                    </td>
                     <td>
                         <form action="{{route('admin.categories.destroy', $element)}}" method="POST">
 
