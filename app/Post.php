@@ -14,6 +14,7 @@ class Post extends Model
         'publication_date'
     ];
 
+    // Funzione modifica url con slug
     public function getRouteKeyName()
     {
         return 'slug';
@@ -22,5 +23,10 @@ class Post extends Model
     // Funzione relazione tabella categories
     public function category() {
         return $this->belongsTo('App\Category');
+    }
+
+    // Funzione relazione tabella tags
+    public function tags() {
+        return $this->belongsToMany('App\Tag');
     }
 }
