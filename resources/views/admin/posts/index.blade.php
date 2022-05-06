@@ -17,11 +17,14 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Slug</th>
+                <th>User</th>
                 <th>Description</th>
-                <th>Category_id</th>
-                <th>Tag</th>
+                <th>Category</th>
+                <th>Tags</th>
                 <th>Image</th>
-                <th>Publication_date</th>
+                <th>Publication date</th>
+                <th>Created at</th>
+                <th>Updated at</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -32,6 +35,9 @@
                     <td>{{$element->id}}</td>
                     <td>{{$element->title}}</td>
                     <td>{{$element->slug}}</td>
+                    <td>
+                        <a href="{{route('admin.user.posts', $element->user->id)}}">{{$element->user->name}}</a>
+                    </td>
                     <td>{{$element->description}}</td>
                     <td>{{$element->category ? $element->category->name : 'null'}}</td>
                     <td>
@@ -45,7 +51,8 @@
                         </figure>
                     </td>
                     <td>{{$element->publication_date == null ? 'null' : $element->publication_date}}</td>
-                    {{-- <td><a href="http://">Visualizza</a></td> --}}
+                    <td>{{$element->created_at}}</td>
+                    <td>{{$element->updated_at}}</td>
                     <td>
                         <a class="btn btn-warning" href="{{route('admin.posts.edit', $element)}}">Modifica</a>
                     </td>
