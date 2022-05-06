@@ -95,6 +95,28 @@
                 @enderror
             </div>
 
+            {{-- Users --}}
+            <div class="form-group">
+                <label for="user_id">Utente</label>
+                <select class="form-control @error('user_id') is-invalid @enderror" name="user_id" id="user_id">
+
+                    <option value="">Seleziona un utente</option>
+
+                    {{-- Foreach variabile categories --}}
+                    @foreach ($users as $element)
+                        <option value="{{$element->id}}" {{old('user_id') && old('user_id') == $element->id ? 'selected' : ''}}>{{$element->name}}</option>
+                    @endforeach
+                </select>
+
+                {{-- Error validation --}}
+                @error('user_id')
+                <div class="alert alert-danger">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+
+
             {{-- Date --}}
             <div class="form-group">
                 <label for="publication_date">Data di pubblicazione</label>
