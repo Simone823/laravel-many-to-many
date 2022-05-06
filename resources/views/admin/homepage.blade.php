@@ -19,7 +19,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Email_verified_at</th>
-                <th>Passowrd</th>
+                <th>Password</th>
                 <th>Remember_token</th>
                 <th>Created_at</th>
                 <th>Updated_at</th>
@@ -75,6 +75,42 @@
         </table>
 
     </section>
+
+    {{-- Sezione tabella tags --}}
+    <section id="section_table_tags" class="mb-5">
+
+        {{-- Title --}}
+        <h3 class="text-white">Tags</h3>
+
+        {{-- Table categories --}}
+        <table class="table_tags">
+
+            {{-- Table header --}}
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+            </tr>
+
+            {{-- Foreach categories --}}
+            @foreach ($tags as $element)
+            <tr>
+                <td>{{$element->id}}</td>
+                <td>
+                    <span style="background-color: {{$element->color}}; font-size: 14px;" class="badge badge-pill py-2 px-3 my-2 text-dark">{{$element->name}}</span>
+                </td>
+                <td>{{$element->slug}}</td>
+                <td>{{$element->created_at}}</td>
+                <td>{{$element->updated_at}}</td>
+            </tr>
+            @endforeach
+
+        </table>
+
+    </section>
+
     
     {{-- Sezione tabella posts --}}
     <section id="section_table_posts">
@@ -90,6 +126,7 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Slug</th>
+                <th>User</th>
                 <th>Description</th>
                 <th>Category_id</th>
                 <th>Tags</th>
@@ -105,6 +142,10 @@
                     <td>{{$element->id}}</td>
                     <td>{{$element->title}}</td>
                     <td>{{$element->slug}}</td>
+                    <td>
+                        <span class="badge badge-pill badge-dark text-white font-weight-bold px-3 py-2">{{$element->user->name}}</span>
+                    </td>
+
                     <td>{{$element->description}}</td>
                     <td>{{$element->category ? $element->category->name : 'null'}}</td>
                     <td>
