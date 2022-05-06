@@ -11,7 +11,8 @@ class Post extends Model
         'description',
         'category_id',
         'image',
-        'publication_date'
+        'publication_date',
+        'user_id'
     ];
 
     // Funzione modifica url con slug
