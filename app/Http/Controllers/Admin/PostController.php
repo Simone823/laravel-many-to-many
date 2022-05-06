@@ -89,14 +89,6 @@ class PostController extends Controller
         // Creo un nuovo post
         $post = new Post();
 
-        // Controllo se esiste il tags lo aggiorno altrimenti sync vuoto
-        if (array_key_exists('tags', $data)) {
-            // Sync
-            $post->tags()->sync($data['tags']);
-        } else {
-            $post->tags()->sync([]);
-        }
-        
         // Recupero i dati con il metodo fill
         $post->fill($data);
 
@@ -105,6 +97,14 @@ class PostController extends Controller
 
         // Salvo i dati
         $post->save();
+
+        // Controllo se esiste il tags lo aggiorno altrimenti sync vuoto
+        if (array_key_exists('tags', $data)) {
+            // Sync
+            $post->tags()->sync($data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
 
         // Redirect route admin.posts.index
         return redirect()->route('admin.posts.index');
