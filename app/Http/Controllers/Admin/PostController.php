@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Tag;
+use App\User;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -42,8 +43,11 @@ class PostController extends Controller
         // Recupero l'elenco di tag dal database 
         $tags = Tag::orderBy('name', 'ASC')->get();
 
+        // Recupero l'elenco di users dal db
+        $users = User::orderBy('name', 'ASC')->get();
+
         // Return view admin.posts.create
-        return view('admin.posts.create', compact('categories', 'tags'));
+        return view('admin.posts.create', compact('categories', 'tags', 'users'));
     }
 
     /**
@@ -64,7 +68,8 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'exists:tags,id',
             'image' => 'required|url',
-            'publication_date' => 'nullable|date|before_or_equal:today'
+            'publication_date' => 'nullable|date|before_or_equal:today',
+            'user_id' => 'required|exists:users,id'
         ]);
 
         // Slug post title
@@ -135,8 +140,11 @@ class PostController extends Controller
         // Recupero l'elenco di tags
         $tags = Tag::orderBy('name', 'ASC')->get();
 
+        // Recupero l'elenco di users dal db
+        $users = User::orderBy('name', 'ASC')->get();
+
         // Return view admin.posts.edit
-        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'users'));
     }
 
     /**
@@ -158,7 +166,8 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'exists:tags,id',
             'image' => 'required|url',
-            'publication_date' => 'nullable|date|before_or_equal:today'
+            'publication_date' => 'nullable|date|before_or_equal:today',
+            'user_id' => 'required|exists:users,id'
         ]);
 
         // Slug post title
