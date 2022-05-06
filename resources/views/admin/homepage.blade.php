@@ -21,6 +21,8 @@
                 <th>Email_verified_at</th>
                 <th>Passowrd</th>
                 <th>Remember_token</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
             </tr>
 
             {{-- Foreach users --}}
@@ -32,6 +34,8 @@
                     <td>{{$element->email_verified_at == null ? 'null' : $element->email_verified_at}}</td>
                     <td>{{$element->password}}</td>
                     <td>{{$element->remember_token == null ? 'null' : $element->remember_token}}</td>
+                    <td>{{$element->created_at}}</td>
+                    <td>{{$element->updated_at}}</td>
                 </tr>
             @endforeach
 
@@ -41,7 +45,6 @@
 
     {{-- Sezione tabella categories --}}
     <section id="section_table_categories" class="mb-5">
-
 
         {{-- Title --}}
         <h3 class="text-white">Categories</h3>
@@ -54,6 +57,8 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Slug</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
             </tr>
 
             {{-- Foreach categories --}}
@@ -62,6 +67,8 @@
                 <td>{{$element->id}}</td>
                 <td>{{$element->name}}</td>
                 <td>{{$element->slug}}</td>
+                <td>{{$element->created_at}}</td>
+                <td>{{$element->updated_at}}</td>
             </tr>
             @endforeach
 
@@ -88,6 +95,8 @@
                 <th>Tags</th>
                 <th>Image</th>
                 <th>Publication_date</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
             </tr>
 
             {{-- Foreach posts --}}
@@ -109,6 +118,8 @@
                         </figure>
                     </td>
                     <td>{{$element->publication_date == null ? 'null' : $element->publication_date}}</td>
+                    <td>{{$element->created_at}}</td>
+                    <td>{{$element->updated_at}}</td>
                 </tr>
             @endforeach
 
