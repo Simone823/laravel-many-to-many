@@ -36,7 +36,7 @@
                     <td>{{$element->title}}</td>
                     <td>{{$element->slug}}</td>
                     <td>
-                        <a href="{{route('admin.user.posts', $element->user->id)}}">{{$element->user->name}}</a>
+                        <a class="badge badge-pill badge-dark text-white font-weight-bold px-3 py-2" href="{{route('admin.user.posts', $element->user->id)}}">{{$element->user->name}}</a>
                     </td>
                     <td>{{$element->description}}</td>
                     <td>{{$element->category ? $element->category->name : 'null'}}</td>
