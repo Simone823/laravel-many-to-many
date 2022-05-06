@@ -20,6 +20,8 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Slug</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
             </tr>
 
             {{-- Category --}}
@@ -27,6 +29,8 @@
                 <td>{{$category->id}}</td>
                 <td>{{$category->name}}</td>
                 <td>{{$category->slug}}</td>
+                <td>{{$category->created_at}}</td>
+                <td>{{$category->updated_at}}</td>
             </tr>
 
         </table>
