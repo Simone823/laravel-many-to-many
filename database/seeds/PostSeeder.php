@@ -3,6 +3,7 @@
 use App\Category;
 use App\Post;
 use App\Tag;
+use App\User;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -42,6 +43,10 @@ class PostSeeder extends Seeder
 
             // Tags random
             $tags_random = $faker->randomElements($tagsId, 3);
+
+            // User random
+            $user = User::inRandomOrder()->first();
+            $posts->user_id = $user->id;
 
             $posts->image = $faker->imageUrl('500', '500', true);
             $posts->publication_date = $faker->randomElement([null, $faker->date()]);
