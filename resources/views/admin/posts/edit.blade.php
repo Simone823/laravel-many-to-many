@@ -22,6 +22,8 @@
                 <th>Tags</th>
                 <th>Image</th>
                 <th>Publication_date</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
             </tr>
     
             {{-- Body --}}
@@ -42,6 +44,8 @@
                     </figure>
                 </td>
                 <td>{{$post['publication_date'] == null ? 'null' : $post['publication_date'] }}</td>
+                <td>{{$post->created_at}}</td>
+                <td>{{$post->updated_at}}</td>
             </tr>
     
         </table>
