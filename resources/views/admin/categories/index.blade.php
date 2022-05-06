@@ -18,6 +18,8 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Slug</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -28,6 +30,8 @@
                     <td>{{$element->id}}</td>
                     <td>{{$element->name}}</td>
                     <td>{{$element->slug}}</td>
+                    <td>{{$element->created_at}}</td>
+                    <td>{{$element->updated_at}}</td>
                     <td>
                         <a class="btn btn-warning" href="{{route('admin.categories.edit', $element)}}">Modifica</a>
                     </td>
