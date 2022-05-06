@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         // Recupero dal database con metodo all i posts
-        $posts = Post::with(['category', 'tags'])->get();
+        $posts = Post::with(['category', 'tags', 'user'])->get();
 
         // Recupero l'elenco di tags dal db
         $tags = Tag::orderBy('name', 'ASC')->get();
