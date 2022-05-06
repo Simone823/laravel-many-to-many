@@ -17,6 +17,7 @@
                 <th>id</th>
                 <th>Title</th>
                 <th>Slug</th>
+                <th>User</th>
                 <th>Description</th>
                 <th>Category_id</th>
                 <th>Tags</th>
@@ -31,6 +32,9 @@
                 <td>{{$post['id']}}</td>
                 <td>{{$post['title']}}</td>
                 <td>{{$post['slug']}}</td>
+                <td>
+                    <span class="badge badge-pill badge-dark text-white font-weight-bold px-3 py-2">{{$post->user->name}}</span>
+                </td>
                 <td>{{$post['description']}}</td>
                 <td>{{$post->category ? $post->category->name : 'null'}}</td>
                 <td>
@@ -146,6 +150,28 @@
                     </div>
                 @enderror
             </div>
+
+            {{-- Users --}}
+            <div class="form-group">
+                <label for="user_id">Utente</label>
+                <select class="form-control @error('user_id') is-invalid @enderror" name="user_id" id="user_id">
+
+                    <option value="">Seleziona un utente</option>
+
+                    {{-- Foreach variabile categories --}}
+                    @foreach ($users as $element)
+                        <option value="{{$element->id}}" {{old('user_id', optional($post->user)->id) == $element->id ? 'selected' : ''}}>{{$element->name}}</option>
+                    @endforeach
+                </select>
+
+                {{-- Error validation --}}
+                @error('user_id')
+                    <div class="alert alert-danger">
+                        {{$message}}
+                    </div>
+                @enderror
+            </div>
+
     
             {{-- Date --}}
             <div class="form-group">
