@@ -39,5 +39,8 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
 
     // Rotta user posts
     Route::get('/users/{user}/posts', 'UserPostController@index')->name('user.posts');
+
+    // Rotta tags
+    Route::resource('/tags', 'TagController');
 });
 
