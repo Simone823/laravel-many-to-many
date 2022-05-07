@@ -109,6 +109,10 @@
                                 </li>
 
                                 <li class="nav-item text-uppercase font-weight-bold">
+                                    <a class="@if (Route::is('admin.tags.index')) text-warning @endif" href="{{route('admin.tags.index')}}">Tags</a>
+                                </li>
+
+                                <li class="nav-item text-uppercase font-weight-bold">
                                     <a class="@if (Route::is('admin.posts.index')) text-warning @endif" href="{{route('admin.posts.index')}}">Posts</a>
                                 </li>
                                 
