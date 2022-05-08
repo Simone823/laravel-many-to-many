@@ -54,6 +54,9 @@
                     <td>{{$element->created_at}}</td>
                     <td>{{$element->updated_at}}</td>
                     <td>
+                        <a class="btn btn-primary text-uppercase" href="{{route('admin.user.posts', $element->user->id)}}">Visualizza tutti i post di {{$element->user->name}}</a>
+                    </td>
+                    <td>
                         <a class="btn btn-warning" href="{{route('admin.posts.edit', $element)}}">Modifica</a>
                     </td>
                     <td>
