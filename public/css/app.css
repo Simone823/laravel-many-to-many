@@ -11016,28 +11016,40 @@ a.text-dark:focus {
   color: rgba(214, 209, 209, 0.867);
 }
 
+#section_table_users,
 #section_table_categories,
-#section_table_users {
+#section_table_tags {
   padding: 10px 20px;
 }
 
+#section_table_users h3,
 #section_table_categories h3,
-#section_table_users h3 {
+#section_table_tags h3 {
   text-align: center;
   margin-bottom: 30px;
 }
 
-#section_table_categories .table_categories,
-#section_table_categories .table_users,
+#section_table_users .table_users,
 #section_table_users .table_categories,
-#section_table_users .table_users {
+#section_table_users .table_tags,
+#section_table_categories .table_users,
+#section_table_categories .table_categories,
+#section_table_categories .table_tags,
+#section_table_tags .table_users,
+#section_table_tags .table_categories,
+#section_table_tags .table_tags {
   margin: 0 auto;
 }
 
-#section_table_categories .table_categories tr th,
-#section_table_categories .table_users tr th,
+#section_table_users .table_users tr th,
 #section_table_users .table_categories tr th,
-#section_table_users .table_users tr th {
+#section_table_users .table_tags tr th,
+#section_table_categories .table_users tr th,
+#section_table_categories .table_categories tr th,
+#section_table_categories .table_tags tr th,
+#section_table_tags .table_users tr th,
+#section_table_tags .table_categories tr th,
+#section_table_tags .table_tags tr th {
   border: 2px solid black;
   text-align: center;
   padding: 10px 10px;
@@ -11045,10 +11057,15 @@ a.text-dark:focus {
   font-size: 16px;
 }
 
-#section_table_categories .table_categories tr td,
-#section_table_categories .table_users tr td,
+#section_table_users .table_users tr td,
 #section_table_users .table_categories tr td,
-#section_table_users .table_users tr td {
+#section_table_users .table_tags tr td,
+#section_table_categories .table_users tr td,
+#section_table_categories .table_categories tr td,
+#section_table_categories .table_tags tr td,
+#section_table_tags .table_users tr td,
+#section_table_tags .table_categories tr td,
+#section_table_tags .table_tags tr td {
   border: 2px solid black;
   padding: 10px 10px;
   text-align: center;
@@ -11056,18 +11073,28 @@ a.text-dark:focus {
   font-size: 16px;
 }
 
-#section_table_categories .table_categories tr td .img_wrapper,
-#section_table_categories .table_users tr td .img_wrapper,
+#section_table_users .table_users tr td .img_wrapper,
 #section_table_users .table_categories tr td .img_wrapper,
-#section_table_users .table_users tr td .img_wrapper {
+#section_table_users .table_tags tr td .img_wrapper,
+#section_table_categories .table_users tr td .img_wrapper,
+#section_table_categories .table_categories tr td .img_wrapper,
+#section_table_categories .table_tags tr td .img_wrapper,
+#section_table_tags .table_users tr td .img_wrapper,
+#section_table_tags .table_categories tr td .img_wrapper,
+#section_table_tags .table_tags tr td .img_wrapper {
   width: 70px;
   aspect-ratio: 1/1;
 }
 
-#section_table_categories .table_categories tr td a,
-#section_table_categories .table_users tr td a,
+#section_table_users .table_users tr td a,
 #section_table_users .table_categories tr td a,
-#section_table_users .table_users tr td a {
+#section_table_users .table_tags tr td a,
+#section_table_categories .table_users tr td a,
+#section_table_categories .table_categories tr td a,
+#section_table_categories .table_tags tr td a,
+#section_table_tags .table_users tr td a,
+#section_table_tags .table_categories tr td a,
+#section_table_tags .table_tags tr td a {
   font-weight: 600;
 }
 
