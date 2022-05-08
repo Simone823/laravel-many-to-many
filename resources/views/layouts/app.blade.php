@@ -121,6 +121,10 @@
                                 </li>
 
                                 <li class="nav-item text-uppercase font-weight-bold">
+                                    <a class="@if (Route::is('admin.tags.create')) text-warning @endif" href="{{route('admin.tags.create')}}">Aggiungi Tag</a>
+                                </li>
+
+                                <li class="nav-item text-uppercase font-weight-bold">
                                     <a class="@if (Route::is('admin.posts.create')) text-warning @endif" href="{{route('admin.posts.create')}}">Aggiungi post</a>
                                 </li>
 
