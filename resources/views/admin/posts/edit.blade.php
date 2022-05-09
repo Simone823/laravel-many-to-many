@@ -7,50 +7,55 @@
 @section('content')
     
     {{-- Sezione table_post --}}
-    <section id="section_table_posts" class="mb-5">
+    <section id="section_table_posts" class="container-fluid mb-4">
 
         {{-- Table --}}
-        <table class="table_posts mx-auto">
+        <table class="table table-striped table-secondary">
     
             {{-- Table header --}}
-            <tr>
-                <th>id</th>
-                <th>Title</th>
-                <th>Slug</th>
-                <th>User</th>
-                <th>Description</th>
-                <th>Category_id</th>
-                <th>Tags</th>
-                <th>Image</th>
-                <th>Publication_date</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category_id</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Publication_date</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Updated_at</th>
+                </tr>
+            </thead>
     
-            {{-- Body --}}
-            <tr>
-                <td>{{$post['id']}}</td>
-                <td>{{$post['title']}}</td>
-                <td>{{$post['slug']}}</td>
-                <td>
-                    <span class="badge badge-pill badge-dark text-white font-weight-bold px-3 py-2">{{$post->user->name}}</span>
-                </td>
-                <td>{{$post['description']}}</td>
-                <td>{{$post->category ? $post->category->name : 'null'}}</td>
-                <td>
-                    @foreach ($post->tags as $tag)
-                        <span style="background-color: {{$tag->color}}" class="badge badge-pill py-2 px-3 my-2 text-dark">{{$tag->name}}</span>
-                    @endforeach
-                </td>
-                <td>
-                    <figure class="img_wrapper">
-                        <img src="{{$post['image']}}" alt="">
-                    </figure>
-                </td>
-                <td>{{$post['publication_date'] == null ? 'null' : $post['publication_date'] }}</td>
-                <td>{{$post->created_at}}</td>
-                <td>{{$post->updated_at}}</td>
-            </tr>
+            {{-- Table Body --}}
+            <tbody>
+                <tr>
+                    <td>{{$post['id']}}</td>
+                    <td>{{$post['title']}}</td>
+                    <td>{{$post['slug']}}</td>
+                    <td>
+                        <span class="badge badge-pill badge-dark text-white font-weight-bold px-3 py-2">{{$post->user->name}}</span>
+                    </td>
+                    <td>{{$post['description']}}</td>
+                    <td>{{$post->category ? $post->category->name : 'null'}}</td>
+                    <td>
+                        @foreach ($post->tags as $tag)
+                            <span style="background-color: {{$tag->color}}; font-size: 14px;" class="badge badge-pill py-2 px-3 my-2 text-dark">{{$tag->name}}</span>
+
+                        @endforeach
+                    </td>
+                    <td>
+                        <figure class="img_wrapper">
+                            <img src="{{$post['image']}}" alt="">
+                        </figure>
+                    </td>
+                    <td>{{$post['publication_date'] == null ? 'null' : $post['publication_date'] }}</td>
+                    <td>{{$post->created_at}}</td>
+                    <td>{{$post->updated_at}}</td>
+                </tr>
+            </tbody>
     
         </table>
     </section>
