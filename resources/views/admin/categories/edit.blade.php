@@ -7,31 +7,33 @@
 @section('content')
     
     {{-- Sezione tabella categories --}}
-    <section id="section_table_categories">
-
-        {{-- Title --}}
-        <h3 class="text-white">Categories</h3>
+    <section id="section_table_categories" class="container mb-4">
 
         {{-- Table categories --}}
-        <table class="table_categories">
+        <table class="table table-striped table-secondary">
 
             {{-- Table header --}}
-            <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>Slug</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Updated_at</th>
+                </tr>
+            </thead>
 
-            {{-- Category --}}
-            <tr>
-                <td>{{$category->id}}</td>
-                <td>{{$category->name}}</td>
-                <td>{{$category->slug}}</td>
-                <td>{{$category->created_at}}</td>
-                <td>{{$category->updated_at}}</td>
-            </tr>
+            {{-- Table body --}}
+            <tbody>
+                {{-- Category --}}
+                <tr>
+                    <td>{{$category->id}}</td>
+                    <td>{{$category->name}}</td>
+                    <td>{{$category->slug}}</td>
+                    <td>{{$category->created_at}}</td>
+                    <td>{{$category->updated_at}}</td>
+                </tr>
+            </tbody>
 
         </table>
 
