@@ -11127,6 +11127,18 @@ img {
        column-gap: 28px;
 }
 
+.table thead th {
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: inherit;
+}
+
+.table td .img_wrapper {
+  width: 90px;
+}
+
 main {
   padding-top: 140px;
   padding-bottom: 50px;
