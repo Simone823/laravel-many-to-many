@@ -53,6 +53,10 @@ img {
     column-gap: 28px;
 }
 
+.table thead th {
+    vertical-align: middle;
+}
+
 .table td {
     vertical-align: inherit;
 }
