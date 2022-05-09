@@ -26,7 +26,7 @@
     <div id="app">
 
         {{-- Nav --}}
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
             <div class="container">
 
                 @guest
